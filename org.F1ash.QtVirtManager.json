@@ -1,0 +1,35 @@
+{
+    "app-id": "org.F1ash.QtVirtManager",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.11",
+    "sdk": "org.kde.Sdk",
+    "command": "/app/qt-virt-manager",
+    "branch": "master",
+    "tags": ["master", "qt", "virtualization"],
+    "modules": [
+        {
+            "name": "metadata",
+            "buildsystem": "simple",
+            "build_commands": [
+                "install -Dm644 org.F1ash.QtVirtManager.appdata.xml /app/share/metainfo/org.F1ash.QtVirtManager.appdata.xml",
+                "install -Dm644 org.F1ash.QtVirtManager.desktop /app/share/applications/org.F1ash.QtVirtManager.desktop"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "org.F1ash.QtVirtManager.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "org.F1ash.QtVirtManager.appdata.xml"
+                }
+            ]
+        }
+    ],
+    "finish-args": [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=host",
+    ]
+}
